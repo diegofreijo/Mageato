@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
     [SerializeField] private Rigidbody2D rb;
@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue value)
     {
         var direction = value.Get<Vector2>();
-        // Debug.Log(direction);
-        // transform.position = transform.position + new Vector3(direction.x, direction.y, 0);
         rb.velocity = direction * speed;
 
         if (direction.x != 0)
-            spriteRenderer.flipX = direction.x < 0;
+            transform.localScale = new Vector3(
+                direction.x < 0 ? -1 : 1,
+                1, 1);
     }
 }
