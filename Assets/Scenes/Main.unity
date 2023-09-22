@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 613144e281018b34ea1fab406337b8fc, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -156,8 +156,7 @@ MonoBehaviour:
   yMax: 2
   xMin: -5
   xMax: 7
-  spikesPrefab: {fileID: 1725609530911957782, guid: 85c78a520c157dc40adb2545e0e48e1d, type: 3}
-  spikesChance: 0.8
+  obstaclesTable: {fileID: 11400000, guid: abbce8421e8aaa9468cba2a39411e68a, type: 2}
 --- !u!4 &112262498
 Transform:
   m_ObjectHideFlags: 0
@@ -393,25 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13b4f33d5bd08e44aaa85aa7e8079b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: 100
-  maxHealth: 100
   gameOverWindowPrefab: {fileID: 863790099141344148, guid: e54f287503a4bf347877ee5b1e1f314f, type: 3}
   canvasTransform: {fileID: 2139521083}
-  onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 493981156}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: OnHealthChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  data: {fileID: 11400000, guid: 45db98ef4498d1a409911763e0956c91, type: 2}
 --- !u!1 &493981153
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 493981155}
-  playerHealth: {fileID: 242856206}
+  data: {fileID: 11400000, guid: 45db98ef4498d1a409911763e0956c91, type: 2}
 --- !u!1 &888611186
 GameObject:
   m_ObjectHideFlags: 0

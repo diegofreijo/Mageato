@@ -9,14 +9,9 @@ public interface IWeightable
     int Weight { get; }
 }
 
-public class WeightedTable<T> where T : IWeightable
+public abstract class WeightedTable<T> : ScriptableObject where T : IWeightable
 {
-    private List<T> chances;
-
-    public WeightedTable(List<T> chances)
-    {
-        this.chances = chances;
-    }
+    [SerializeField] private List<T> chances;
 
     public T Evaluate()
     {
