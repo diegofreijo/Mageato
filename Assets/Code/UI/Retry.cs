@@ -8,6 +8,6 @@ public class Retry : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Parallax");
     }
 }

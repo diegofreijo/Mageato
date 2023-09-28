@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     public Camera mainCamera;
     public float speed = 1f;
-
     private float startPosition;
     private float length;
 
     void Start()
     {
         startPosition = transform.position.x;
-        // length = GetComponent<SpriteRenderer>().bounds.size.x;
+        length = spriteRenderer.bounds.size.x;
     }
 
     void FixedUpdate()
@@ -21,5 +22,11 @@ public class Parallax : MonoBehaviour
         var dist = mainCamera.transform.position.x * speed;
 
         transform.position = new Vector3(startPosition + dist, transform.position.y, transform.position.z);
+
+        var relativeCameraDist = mainCamera.transform.position.x * (1 - speed);
+        if (relativeCameraDist > startPosition + length)
+            startPosition += length;
+        else if (relativeCameraDist < startPosition - length)
+            startPosition -= length;
     }
 }
