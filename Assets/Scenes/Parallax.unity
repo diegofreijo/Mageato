@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1092845420}
-  mainCamera: {fileID: 560771259}
+  target: {fileID: 560771260}
   speed: 0.1
 --- !u!1 &936963613
 GameObject:
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1880427668}
-  mainCamera: {fileID: 560771259}
+  target: {fileID: 560771260}
   speed: 0.8
 --- !u!1 &1579184082
 GameObject:
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 594196035}
-  mainCamera: {fileID: 560771259}
+  target: {fileID: 560771260}
   speed: 0.3
 --- !u!1 &1880427666
 GameObject:

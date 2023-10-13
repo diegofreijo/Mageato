@@ -6,7 +6,7 @@ public class Parallax : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public Camera mainCamera;
+    public Transform target;
     public float speed = 1f;
     private float startPosition;
     private float length;
@@ -19,11 +19,11 @@ public class Parallax : MonoBehaviour
 
     void FixedUpdate()
     {
-        var dist = mainCamera.transform.position.x * speed;
+        var dist = target.position.x * speed;
 
         transform.position = new Vector3(startPosition + dist, transform.position.y, transform.position.z);
 
-        var relativeCameraDist = mainCamera.transform.position.x * (1 - speed);
+        var relativeCameraDist = target.position.x * (1 - speed);
         if (relativeCameraDist > startPosition + length)
             startPosition += length;
         else if (relativeCameraDist < startPosition - length)
