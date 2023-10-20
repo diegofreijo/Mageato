@@ -9,5 +9,4 @@ public class HealthData : ScriptableObject {
 
     // public int Current => current;
     // public int MaxHealth => maxHealth;
-
 }
