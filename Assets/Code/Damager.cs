@@ -1,24 +1,35 @@
+using System.Collections;
 using UnityEngine;
 
 public class Damager : MonoBehaviour
 {
     [SerializeField] private Obstacle obstacle;
 
-    /// <summary>
-    /// Sent when an incoming collider makes contact with this object's
-    /// collider (2D physics only).
-    /// </summary>
-    /// <param name="other">The Collision2D data associated with this collision.</param>
     void OnCollisionEnter2D(Collision2D other)
     {
-        var health = other.gameObject.GetComponent<Health>();
-        health.Damage(obstacle.Damage);
+        Damage(other.gameObject.GetComponent<Health>());
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Damage(other.gameObject.GetComponent<Health>());
+    }
+
+    private void Damage(Health health)
+    {
         Debug.Log("Quemando jugador!");
-        var health = other.gameObject.GetComponent<Health>();
         health.Damage(obstacle.Damage);
+
+        StartCoroutine(WaitAndDie());
+    }
+
+    private IEnumerator WaitAndDie()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Debug.Log($"Esperando en el segundo {i}");
+            yield return new WaitForSeconds(1f);
+        }
+        Destroy(gameObject);
     }
 }
